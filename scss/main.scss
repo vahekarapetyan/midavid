@@ -1,0 +1,59 @@
+header {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    a {
+        color: $david-color;
+    }
+}
+
+div.row {
+    margin-top: 30px;
+}
+
+nav.side-nav ul{
+    text-transform: uppercase;
+    list-style: none;
+
+    a:active {
+        color: #a9baa9;
+    }
+
+    li:hover {
+        list-style-type: $list-style-type;
+        color: $david-color;
+    }
+}
+
+.main-content {
+
+}
+
+.footer {
+    .social {
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .languages {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .8rem;
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: $david-color;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: $david-color;
+        }
+    }
+}

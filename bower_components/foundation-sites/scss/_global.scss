@@ -108,6 +108,7 @@ $secondary-color: get-color(secondary);
 $success-color: get-color(success);
 $warning-color: get-color(warning);
 $alert-color: get-color(alert);
+$david-color: get-color(david);
 
 @mixin foundation-global-styles {
   @include -zf-normalize;

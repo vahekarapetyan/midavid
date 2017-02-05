@@ -1,30 +1,26 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
-var mongoose = require('mongoose');
-var sassMiddleware = require('node-sass-middleware');
-var browserify = require('browserify-middleware');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express       = require('express');
+var exphbs        = require('express-handlebars');
+var mongoose      = require('mongoose');
+var browserify    = require('browserify-middleware');
+var path          = require('path');
+var favicon       = require('serve-favicon');
+var logger        = require('morgan');
+var cookieParser  = require('cookie-parser');
+var bodyParser    = require('body-parser');
 
-var index = require('./routes/index');
+// Routing variables.
+var index     = require('./routes/index');
+var artworks  = require('./routes/artworks');
+var chronic   = require('./routes/chronic');
+var contact   = require('./routes/contact');
+var media     = require('./routes/media');
+var news      = require('./routes/news');
 
 var app = express();
 
 // view engine setup
 app.engine('hbs', exphbs({extname: '.hbs', defaultLayout: 'layout'}));
 app.set('view engine', 'hbs');
-
-// sass compiling setup.
-app.use (
-  sassMiddleware({
-    src: __dirname + '/sass',
-    dest: __dirname + '/public',
-    debug: true
-  })
-);
 
 // browserify handelbar templates in order to use it in front-end.
 browserify.settings({
@@ -57,7 +53,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap-sass/assets/fonts')));
 
+// Map routers.
 app.use('/', index);
+app.use('/artworks', artworks);
+app.use('/chronic', chronic);
+app.use('/contact', contact);
+app.use('/media', media);
+app.use('/news', news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -74,7 +76,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('pages/error');
 });
 
 module.exports = app;
