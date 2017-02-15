@@ -12,6 +12,18 @@ div.row {
     margin-top: 30px;
 }
 
+.welcome-overlay {
+    position: absolute;
+    left:0;
+    top:0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    img {@include absolute-center;}
+}
+
 nav.side-nav ul{
     text-transform: uppercase;
     list-style: none;
@@ -26,8 +38,23 @@ nav.side-nav ul{
     }
 }
 
-.main-content {
+.index {
+    background: white url('../images/prince.png') no-repeat right bottom;
+    min-height: 84vh;
+    .line {
+        @include vertical-center;
+        background: white url('../images/line.svg') no-repeat center center;
+    }
+}
 
+.bio{
+    //background: white url('../images/md-bio.png') no-repeat right bottom;
+    background-image: url('../images/md-bio.png'), url('../images/stand.png');
+    background-repeat: no-repeat, no-repeat;
+    //background-position: bottom right, left, right;
+    background-position-y: 100%, 100%;
+    background-position-x: 100%, 87%;
+    min-height: 84vh;
 }
 
 .footer {

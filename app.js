@@ -10,6 +10,7 @@ var bodyParser    = require('body-parser');
 
 // Routing variables.
 var index     = require('./routes/index');
+var bio       = require('./routes/bio');
 var artworks  = require('./routes/artworks');
 var chronic   = require('./routes/chronic');
 var contact   = require('./routes/contact');
@@ -55,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Map routers.
 app.use('/', index);
+app.use('/bio', bio);
 app.use('/artworks', artworks);
 app.use('/chronic', chronic);
 app.use('/contact', contact);
